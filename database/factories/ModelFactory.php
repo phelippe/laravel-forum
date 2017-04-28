@@ -26,7 +26,7 @@ $factory->define(Forum\User::class, function (Faker\Generator $faker) {
 $factory->define(Forum\Thread::class, function($faker){
 	return [
 		'user_id' => function(){
-			return factory('App\User')->create()->id;
+			return factory('Forum\User')->create()->id;
 		},
 		'title' => $faker->sentence,
 		'body' => $faker->paragraph,
@@ -36,10 +36,10 @@ $factory->define(Forum\Thread::class, function($faker){
 $factory->define(Forum\Reply::class, function($faker){
 	return [
 		'user_id' => function(){
-			return factory('App\User')->create()->id;
+			return factory('Forum\User')->create()->id;
 		},
 		'thread_id' => function(){
-			return factory('App\Thread')->create()->id;
+			return factory('Forum\Thread')->create()->id;
 		},
 		'body' => $faker->paragraph,
 	];
